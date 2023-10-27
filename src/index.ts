@@ -156,3 +156,6 @@ function getArray2(items: any[]): any[] {
 }
 let numArray2 = getArray2([1, 2, 3, 4]);
 let strArray2 = getArray2(["brad", "John", "kev"]);
+
+let country = "Finland";
+console.log(country.substring(3, 1));
