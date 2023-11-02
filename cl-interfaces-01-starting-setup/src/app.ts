@@ -41,6 +41,7 @@ class ITDepartment extends Department{
 
 class AccountingDepartment extends Department{
     private lastReport: string
+    private static instance: AccountingDepartment
 
     //a getter allows to add more complex logic
     get mostRecentReport(){
@@ -61,9 +62,17 @@ class AccountingDepartment extends Department{
         this.addReport(value)
     }
 
-    constructor(id: string, private reports: string[]){
+    private constructor(id: string, private reports: string[]){
         super(id, "Accounting") 
         this.lastReport = reports[0]  
+    }
+
+    static getInstance(){
+        if (this.instance) {
+            return AccountingDepartment.instance
+        }
+        this.instance = new AccountingDepartment('d2', [])
+        return this.instance
     }
 
     describe() {
@@ -108,7 +117,7 @@ it.printEmployeeInfo()
 
 console.log(it)
 
-const accounting = new AccountingDepartment('d2', [])
+const accounting =  AccountingDepartment.getInstance()
 
 accounting.mostRecentReport = 'Yearly report'
 
