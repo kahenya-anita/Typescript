@@ -91,4 +91,11 @@ const fetchedUserData = {
   name: 'max',
   // job: {title: 'CEO', description: 'My own Boss'}
 }
+//Optional Chaining
 console.log(fetchedUserData?.job?.title)
+
+//Nullish Coalescing
+const UserInput = ''
+const storedData = userInput ?? 'DEFAULT'
+
+console.log(storedData)
