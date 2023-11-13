@@ -70,3 +70,18 @@ function moveAnimal(animal: Animal){
   console.log('Moving at Speed: ' + speed)
 }
 moveAnimal({type: 'bird', flyingSpeed: 10})
+
+const userInput = <HTMLInputElement>document.getElementById('user-input')
+//OR
+const userInputElement = document.getElementById('user-input')! as HTMLInputElement
+//This tells typescript "! " that it will never return type null
+
+userInput.value = 'Hi!'
+
+interface ErrorContainer {
+  [prop: string]: string
+}
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email!',
+  username: "Must start with a capital letter"
+}
