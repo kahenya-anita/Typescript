@@ -79,3 +79,24 @@ const numberStorage = new DataStorage<number>();
 // // // ...
 // objStorage.removeItem(maxObj);
 // console.log(objStorage.getItems());
+
+//GENERIC UTILITY TYPES
+//1. Partial Type => changes property types to optional
+interface CourseGoal {
+  title: string
+  description: string
+  completeUntil: Date
+}
+
+function createCourseGoal(title: string, description: string, date: Date): CourseGoal{
+  let courseGoal: Partial<CourseGoal> = {}
+  courseGoal.title = title
+  courseGoal.description = description
+  courseGoal.completeUntil = date
+  return courseGoal as CourseGoal
+
+}
+
+//2. Readonly => Does not allow you to change or add anything to object
+const names: Readonly<string[]> = ["Max", "Manu"]
+// names.push('Manu') => Not allowed
